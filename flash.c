@@ -157,6 +157,10 @@ static void node_list_maintain(void)
 #endif
 			break;
 		case NODE_STATUS_REBOOTED:
+			/* reboot ap */
+			telnet_send_cmd(node, "reset\n");
+			exit(0);
+			break;
 		case NODE_STATUS_NO_FLASH:
 			/* check timeout and call _node_list_free(list); */
 			break;
